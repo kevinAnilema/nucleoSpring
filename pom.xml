@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.itsqmet</groupId>
-	<artifactId>proyectoJKA</artifactId>
+	<artifactId>proyectojka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>proyectoJKA</name>
 	<description>Proyecto nucleo SP complexivo</description>

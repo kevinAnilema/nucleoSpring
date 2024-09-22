@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Aula</title>
+  <link th:href="@{tema/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet">
+  <link th:href="@{tema/css/sb-admin-2.min.css}" rel="stylesheet">
 </head>
 <body>
-
+<div class="container">
+  <h2 th:text="${aula.id == null ? 'Crear Aula' : 'Editar Aula'}"></h2>
+  <form th:action="@{saveAula}" th:object="${aula}" method="post">
+    <div class="form-group">
+      <label for="nombre">Nombre del Aula</label>
+      <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre del Aula">
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
 </body>
 </html>

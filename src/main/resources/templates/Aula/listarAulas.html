@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/generico/genericoUI}">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Insert title here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Aulas</title>
+  <link th:href="@{tema/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet">
+  <link th:href="@{tema/css/sb-admin-2.min.css}" rel="stylesheet">
 </head>
 <body>
-
-<div layout:fragment="contenidoPaginas">
-
-  <p>Hola Mundo!</p>
-
+<div class="container">
+  <h2>Lista de Aulas</h2>
+  <a th:href="@{/aula/crear}" class="btn btn-primary mb-3">Crear Aula</a>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="aula : ${aulas}">
+      <td th:text="${aula.id}"></td>
+      <td th:text="${aula.nombre}"></td>
+      <td>
+        <a th:href="@{/aula/editar/{id}(id=${aula.id})}" class="btn btn-warning">Editar</a>
+        <a th:href="@{/aula/eliminar/{id}(id=${aula.id})}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-
-
 </body>
 </html>

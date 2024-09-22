@@ -9,4 +9,8 @@ public class AulaControlador {
     public String paginaListaAula() {
         return "/Aula/listarAulas";
     }
+    @GetMapping("/aulas/crear")
+    public String paginaCrearAula() {
+        return "/Aula/nuevaAula"; // Vista para crear o editar un aula
+    }
 }
