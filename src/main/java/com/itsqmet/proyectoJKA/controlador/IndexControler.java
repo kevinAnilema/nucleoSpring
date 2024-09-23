@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexControler {
-    @GetMapping("/inicio")
+    @GetMapping("/")
     public String paginaInicio() {
-        return "/generico/genericoUI";
+        return "/index";
     }
 }

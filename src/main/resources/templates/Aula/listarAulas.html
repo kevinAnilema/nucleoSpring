@@ -11,6 +11,8 @@
 <div class="container">
   <h2>Lista de Aulas</h2>
   <a th:href="@{/aula/crear}" class="btn btn-primary mb-3">Crear Aula</a>
+
+  <div th:if="${aulas!=null and !aulas.empty}">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -30,6 +32,10 @@
     </tr>
     </tbody>
   </table>
+  </div>
+  <div th:if="${aulas!=null and !aulas.empty}">
+    La lista de aulas esta vacia
+  </div>
 </div>
 </body>
 </html>

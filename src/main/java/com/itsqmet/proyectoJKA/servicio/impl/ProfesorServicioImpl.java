@@ -5,17 +5,15 @@ import com.itsqmet.proyectoJKA.repositorio.IProfesorRepositorio;
 import com.itsqmet.proyectoJKA.servicio.IProfesorServicio;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Component
 public class ProfesorServicioImpl implements IProfesorServicio {
-    @AutoConfigureOrder
+
     @Autowired
     private IProfesorRepositorio profesorRepositorio;
 
@@ -25,13 +23,8 @@ public class ProfesorServicioImpl implements IProfesorServicio {
     }
 
     @Override
-    public void eliminarProfesor(int id) {
-        Optional<Profesor> profesorOptional = profesorRepositorio.findById(id);
-        if (profesorOptional.isPresent()) {
-            profesorRepositorio.delete(profesorOptional.get());
-        } else {
-            throw new IllegalArgumentException("Profesor no encontrado con id: " + id);
-        }
+    public void eliminarProfesor(Profesor profesor) {
+        profesorRepositorio.deleteById(profesor.getIdProfesor());
     }
 
     @Override
@@ -45,16 +38,10 @@ public class ProfesorServicioImpl implements IProfesorServicio {
     public List<Profesor> listarProfesores() {
         return profesorRepositorio.findAll();
     }
+
     @Transactional
-    public Profesor buscarProfesor(int id) {
-        Optional<Profesor> profesorOptional = profesorRepositorio.findById(id);
-        if (profesorOptional.isPresent()) {
-            Profesor profesor = profesorOptional.get();
-            System.out.println("Profesor encontrado: " + profesor);
-            return profesor;
-        } else {
-            throw new IllegalArgumentException("Profesor no encontrado con id: " + id);
-        }
+    public Profesor buscarProfesorPorID(int id) {
+        return profesorRepositorio.findById(id).get();
     }
 
 }

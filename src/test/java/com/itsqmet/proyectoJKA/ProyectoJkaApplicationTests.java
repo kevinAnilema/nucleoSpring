@@ -26,20 +26,20 @@ class ProyectoJkaApplicationTests {
 			System.out.println(profe.getNombreProfesor());
 		}
 	}
-	@Test
-	void contextLoads2() {
-		profesorServicio.eliminarProfesor(3);
-	}
+	//@Test
+	//void contextLoads2() {
+	//	profesorServicio.eliminarProfesor(3);
+	//}
 	@Test
 	void contextLoads3() {
 		Profesor profesor = new Profesor();
-		profesor.setIdProfesor(2);
-		profesor.setNombreProfesor("Kevin Anilema - Update");
-		profesor.setDireccionProfesor("Quito 3");
-		profesorServicio.actualizarProfesor(profesor);
+		//profesor.setIdProfesor(8);
+		profesor.setNombreProfesor("Kevin Anilema - test");
+		profesor.setDireccionProfesor("Quito test");
+		//profesorServicio.actualizarProfesor(profesor);
 	}
 	@Test
 	void contextLoads4() {
-		profesorServicio.buscarProfesor(1);
+		profesorServicio.buscarProfesorPorID(1);
 	}
 }
